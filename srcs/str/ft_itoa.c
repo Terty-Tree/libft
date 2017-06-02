@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 15:50:29 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 15:50:29 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/02 14:58:04 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #define ABS(x) (((x) < 0) ? -x : x)
 
-int		num_len(int n)
+static int	num_len(int n)
 {
 	if (n > 10 || n < -10)
 		return (1 + num_len(n / 10));
@@ -24,7 +24,7 @@ int		num_len(int n)
 		return (1);
 }
 
-char	*assign(char *val, int n)
+static char	*assign(char *val, int n)
 {
 	if (n > 10 || n < -10)
 	{
@@ -36,7 +36,7 @@ char	*assign(char *val, int n)
 	return (val + 1);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	*ret;
 	int		neg;

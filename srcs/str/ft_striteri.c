@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:40:50 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:40:50 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/02 15:20:12 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	index = 0;
 	while (s[index] != '\0')
 	{
-		f(index, s);
+		f(index, (s + index));
 		++index;
 	}
 }

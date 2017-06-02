@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 14:52:26 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 16:22:00 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/02 15:04:15 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		ft_atoi(const char *str)
 	if (ft_strlen(str) == 0)
 		return (0);
 	i = 0;
-	while (str[i] == 9 || str[i] == 10 || str[i] == 11
-			|| str[i] == 13 || str[i] == 32)
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 		++i;
 	if ((neg = str[i] == '-'))
 		++i;
