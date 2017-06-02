@@ -6,11 +6,10 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:32:37 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:35:26 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/02 14:50:51 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 
 #include "libft.h"
@@ -76,7 +75,6 @@ char		**ft_strsplit(const char *s, char c)
 		while (counter < (wc + 1))
 		{
 			*(ret + counter) = NULL;
-			printf("%p\n", *(ret + counter));
 			++counter;
 		}
 		counter = 0;

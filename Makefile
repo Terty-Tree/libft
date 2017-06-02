@@ -7,19 +7,19 @@ SOURCES = srcs/chr/*.c \
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-TARGET = libft.a
+NAME = libft.a
 
-$(TARGET): all
+all: $(NAME)
 
-all:
+$(NAME):
 	$(CC) -c $(CFLAGS) -I. $(SOURCES)
 	mv *.o out
-	ar rc $(TARGET) out/*.o
+	ar rc $(NAME) out/*.o
 
 clean:
 	rm -f out/*.o
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 
 re: fclean all

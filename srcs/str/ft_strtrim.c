@@ -6,11 +6,9 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:40:21 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:40:33 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/02 14:51:31 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 #include <stdlib.h>
 
@@ -56,7 +54,6 @@ char		*ft_strtrim(const char *s)
 
 	begin = bgn_index(s);
 	end = end_index(begin, s);
-	printf("%i; %i\n", begin, end);
 	index = begin;
 	ret = ft_strnew(trimmed_len(begin, end, s));
 	if (ret)
