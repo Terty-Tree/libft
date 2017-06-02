@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:40:09 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:40:09 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/02 17:51:49 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	unsigned int	index;
 
 	ret = (char *)malloc(ft_strlen(s));
-	index = 0;
-	while (s[index] != '\0')
+	if (ret)
 	{
-		ret[index] = f(index, s[index]);
-		++index;
+		index = 0;
+		while (s[index] != '\0')
+		{
+			ret[index] = f(index, s[index]);
+			++index;
+		}
 	}
 	return (ret);
 }

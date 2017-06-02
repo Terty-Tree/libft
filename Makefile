@@ -3,6 +3,7 @@ SOURCES = srcs/chr/*.c \
 		  srcs/mem/*.c \
 		  srcs/put/*.c \
 		  srcs/str/*.c
+INCLUDE = includes/
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -12,7 +13,7 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME):
-	$(CC) -c $(CFLAGS) -I. $(SOURCES)
+	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(SOURCES)
 	mv *.o out
 	ar rc $(NAME) out/*.o
 
