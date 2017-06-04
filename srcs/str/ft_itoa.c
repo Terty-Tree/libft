@@ -16,23 +16,25 @@
 
 #define ABS(x) (((x) < 0) ? -x : x)
 
-static int	num_len(int n)
+static int	num_len(long n)
 {
-	if (n > 10 || n < -10)
+	n = ABS(n);
+	if (n >= 10)
 		return (1 + num_len(n / 10));
 	else
 		return (1);
 }
 
-static char	*assign(char *val, int n)
+static char	*assign(char *val, long n)
 {
-	if (n > 10 || n < -10)
+	n = ABS(n);
+	if (n >= 10)
 	{
 		val = assign(val, n / 10);
-		*val = ABS(n % 10) + '0';
+		*val = (n % 10) + '0';
 	}
 	else
-		*val = ABS(n) + '0';
+		*val = n + '0';
 	return (val + 1);
 }
 
@@ -42,7 +44,7 @@ char		*ft_itoa(int n)
 	int		neg;
 
 	neg = (n < 0);
-	ret = (char *)malloc(sizeof(char) * (num_len(n) + neg));
+	ret = (char *)malloc(sizeof(char) * (num_len(n) + neg + 1));
 	if (ret)
 	{
 		if (neg)
@@ -54,6 +56,7 @@ char		*ft_itoa(int n)
 		{
 			assign(ret, n);
 		}
+		ret[(num_len(n) + neg)] = '\0';
 	}
 	return (ret);
 }

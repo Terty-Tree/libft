@@ -19,7 +19,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	char			*ret;
 	unsigned int	index;
 
-	ret = (char *)malloc(ft_strlen(s));
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (ret)
 	{
 		index = 0;
@@ -28,6 +28,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 			ret[index] = f(index, s[index]);
 			++index;
 		}
+		ret[index] = '\0';
 	}
 	return (ret);
 }

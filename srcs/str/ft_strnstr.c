@@ -14,18 +14,21 @@
 
 #include "libft.h"
 
+#define MIN(a, b) ((a < b) ? a : b)
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	counter;
-	int		l_len;
+	size_t	ctr;
+	size_t	l_len;
 
-	counter = 0;
-	l_len = ft_strlen(little);
-	while ((counter + l_len) < len && big[counter] != '\0')
+	ctr = 0;
+	if ((l_len = ft_strlen(little)) == 0)
+		return ((char *)big);
+	while (ctr < len && big[ctr] != '\0')
 	{
-		if (ft_memcmp(little, big, l_len) == 0)
-			return ((char *)big + counter);
-		++counter;
+		if (ft_memcmp(little, (big + ctr), MIN(l_len, (len - ctr))) == 0)
+			return ((char *)big + ctr);
+		++ctr;
 	}
 	return (NULL);
 }

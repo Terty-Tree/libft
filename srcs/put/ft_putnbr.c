@@ -14,17 +14,23 @@
 
 #include "libft.h"
 
-#define ABS(x) (((x) < 0) ? -x : x)
-
-void	ft_putnbr(int n)
+static void	ft_putnbrl(long n)
 {
 	if (n < 0)
+	{
 		ft_putchar('-');
+		n = -n;
+	}
 	if (n >= 10)
 	{
-		ft_putnbr(ABS(n / 10));
-		ft_putnbr(ABS(n % 10));
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
 	}
 	else
-		ft_putchar(ABS(n) + '0');
+		ft_putchar(n + '0');
+}
+
+void		ft_putnbr(int n)
+{
+	ft_putnbrl(n);
 }

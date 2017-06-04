@@ -12,7 +12,9 @@
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+typedef unsigned char	t_byte;
+
+int						ft_strcmp(const char *s1, const char *s2)
 {
 	int	counter;
 
@@ -20,7 +22,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 	while (s1[counter] != '\0' || s2[counter] != '\0')
 	{
 		if (s1[counter] != s2[counter])
-			return (s1[counter] - s2[counter]);
+			return (((t_byte) s1[counter]) - ((t_byte) s2[counter]));
 		++counter;
 	}
 	return (0);

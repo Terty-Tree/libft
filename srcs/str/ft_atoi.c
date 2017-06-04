@@ -12,25 +12,42 @@
 
 #include "libft.h"
 
+static int	is_atoi_ws(char c)
+{
+	return (c == '\f' || c == '\n' || c == '\r' 
+			|| c == '\t' || c == '\v' || c == ' ');
+}
+
+static int	is_neg(const char *str, int *i)
+{
+	if (str[*i] == '-')
+	{
+		++(*i);
+		return (1);
+	}
+	if (str[*i] == '+')
+		++(*i);
+	return (0);
+}
+
 int		ft_atoi(const char *str)
 {
-	int		ret;
-	int		neg;
-	int		i;
+	long long	ret;
+	int			neg;
+	int			i;
 
 	if (ft_strlen(str) == 0)
 		return (0);
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+	while (is_atoi_ws(str[i]))
 		++i;
-	if ((neg = str[i] == '-'))
-		++i;
-	else if (str[i] == '+')
-		++i;
+	neg = is_neg(str, &i);
 	ret = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		ret = (ret * 10) + (str[i] - '0');
+		if (ret < 0)
+			return ((neg) ? 0 : -1);
 		++i;
 	}
 	return ((neg) ? -ret : ret);

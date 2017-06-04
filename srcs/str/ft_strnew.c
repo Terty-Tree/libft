@@ -16,14 +16,18 @@
 
 char	*ft_strnew(size_t size)
 {
-	char *ret;
+	char	*ret;
+	size_t	counter;
 
-	ret = (char *)malloc(sizeof(char) * size);
+	ret = (char *)malloc(sizeof(char) * (size + 1));
 	if (ret != NULL)
-		while (size > 0)
+	{
+		counter = 0;
+		while (size >= counter)
 		{
-			ret[size - 1] = '\0';
-			--size;
+			ret[counter] = '\0';
+			++counter;
 		}
+	}
 	return (ret);
 }
