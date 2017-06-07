@@ -135,9 +135,33 @@ int	main(void)
 		new = ft_lstmap(lst, &mult_lst_content);
 		ft_lstprint(new, &print_int);
 	}*/
-	{
+	/*{
 		char	buf2[] = "abcd";
 
 		printf("%s\n", ft_strrchr(buf2, 'a'));
+	}*/
+	{
+		char	*src = "";
+		char	dst1[10] = "Hello!";
+		char	dst2[10] = "Hello!";
+		size_t	max = sizeof(dst1);
+		size_t	r1;
+		size_t	r2;
+		r1 = strlcat(dst1, src, max);
+		printf("strlcat:\n(%zu) %s\n", r1, dst1);
+		r2 = ft_strlcat(dst2, src, max);
+		printf("ft_strlcat:\n(%zu) %s\n", r2, dst2);
+	}
+	{
+		char	*src = "Hello!";
+		char	dst1[10] = "";
+		char	dst2[10] = "";
+		size_t	max = sizeof(dst1);
+		size_t	r1;
+		size_t	r2;
+		r1 = strlcat(dst1, src, max);
+		printf("strlcat:\n(%zu) %s\n", r1, dst1);
+		r2 = ft_strlcat(dst2, src, max);
+		printf("ft_strlcat:\n(%zu) %s\n", r2, dst2);
 	}
 }

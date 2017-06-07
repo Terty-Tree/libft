@@ -1,9 +1,6 @@
-SOURCES = srcs/chr/*.c \
-		  srcs/lst/*.c \
-		  srcs/mem/*.c \
-		  srcs/put/*.c \
-		  srcs/str/*.c
-INCLUDE = includes/
+SOURCES = *.c
+OBJECTS = *.o
+INCLUDE = -I.
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -13,12 +10,11 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME):
-	$(CC) -c $(CFLAGS) -I$(INCLUDE) $(SOURCES)
-	mv *.o out
-	ar rc $(NAME) out/*.o
+	$(CC) -c $(CFLAGS) $(INCLUDE) $(SOURCES)
+	ar rc $(NAME) $(OBJECTS)
 
 clean:
-	rm -f out/*.o
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)
