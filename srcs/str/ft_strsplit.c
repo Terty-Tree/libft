@@ -67,21 +67,25 @@ char		**ft_strsplit(const char *s, char c)
 	int		wc;
 	int		counter;
 
-	wc = word_count(s, c);
-	ret = (char	**)malloc(sizeof(char *) * (wc + 1));
-	if (ret)
+	ret = NULL;
+	if (s != NULL)
 	{
-		counter = 0;
-		while (counter < (wc + 1))
+		wc = word_count(s, c);
+		ret = (char	**)malloc(sizeof(char *) * (wc + 1));
+		if (ret)
 		{
-			*(ret + counter) = NULL;
-			++counter;
-		}
-		counter = 0;
-		while (*s != '\0')
-		{
-			ret[counter] = get_word(&s, c);
-			++counter;
+			counter = 0;
+			while (counter < (wc + 1))
+			{
+				*(ret + counter) = NULL;
+				++counter;
+			}
+			counter = 0;
+			while (*s != '\0')
+			{
+				ret[counter] = get_word(&s, c);
+				++counter;
+			}
 		}
 	}
 	return (ret);

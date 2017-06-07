@@ -52,16 +52,20 @@ char		*ft_strtrim(const char *s)
 	int		end;
 	int		index;
 
-	begin = bgn_index(s);
-	end = end_index(begin, s);
-	index = begin;
-	ret = ft_strnew(trimmed_len(begin, end, s));
-	if (ret)
+	ret = NULL;
+	if (s != NULL)
 	{
-		while (index <= end)
+		begin = bgn_index(s);
+		end = end_index(begin, s);
+		index = begin;
+		ret = ft_strnew(trimmed_len(begin, end, s));
+		if (ret)
 		{
-			ret[index - begin] = s[index];
-			++index;
+			while (index <= end)
+			{
+				ret[index - begin] = s[index];
+					++index;
+			}
 		}
 	}
 	return (ret);

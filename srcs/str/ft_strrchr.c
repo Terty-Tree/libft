@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	look_for = (char)c;
 	index = 0;
-	last_index = 0;
+	last_index = -1;
 	while (s[index] != '\0')
 	{
 		if (s[index] == look_for)
@@ -30,5 +30,5 @@ char	*ft_strrchr(const char *s, int c)
 	if (look_for == '\0')
 		if (s[index] == '\0')
 			return ((char *)s + index);
-	return ((last_index == 0) ? NULL : (char *)s + last_index);
+	return ((last_index == -1) ? NULL : (char *)s + last_index);
 }

@@ -14,12 +14,15 @@
 
 void	ft_lstaddr(t_list **alst, t_list *new)
 {
+	t_list *ptr;
+
 	if (*alst == NULL)
 		*alst = new;
 	else
 	{
-		while ((*alst)->next != NULL)
-			*alst = (*alst)->next;
-		(*alst)->next = new;
+		ptr = *alst;
+		while (ptr->next != NULL)
+			ptr = ptr->next;
+		ptr->next = new;
 	}
 }

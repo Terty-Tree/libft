@@ -18,11 +18,15 @@ char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*ret;
 
-	ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
-	if (ret != NULL)
+	ret = NULL;
+	if (s1 != NULL && s2 != NULL)
 	{
-		ft_strcpy(ret, s1);
-		ft_strcat(ret, s2);
+		ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+		if (ret != NULL)
+		{
+			ft_strcpy(ret, s1);
+			ft_strcat(ret, s2);
+		}
 	}
 	return (ret);
 }
