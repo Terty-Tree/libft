@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 14:52:26 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/06/08 13:42:06 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/11 12:59:10 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,35 @@ static int	is_atoi_ws(char c)
 			|| c == '\t' || c == '\v' || c == ' ');
 }
 
-static int	is_neg(const char *str, int *i)
+static int	is_neg(const char **str)
 {
-	if (str[*i] == '-')
+	if (**str == '-')
 	{
-		++(*i);
+		++(*str);
 		return (1);
 	}
-	if (str[*i] == '+')
-		++(*i);
+	if (**str == '+')
+		++(*str);
 	return (0);
 }
 
 int			ft_atoi(const char *str)
 {
-	long long	ret;
-	int			neg;
-	int			i;
+	long	ret;
+	long	tmp;
+	int		neg;
 
-	if (ft_strlen(str) == 0)
-		return (0);
-	i = 0;
-	while (is_atoi_ws(str[i]))
-		++i;
-	neg = is_neg(str, &i);
+	while (is_atoi_ws(*str))
+		++str;
+	neg = is_neg(&str);
 	ret = 0;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		ret = (ret * 10) + (str[i] - '0');
-		if (ret < 0)
+		tmp = (ret * 10) + (*str - '0');
+		if (tmp / 10 != ret)
 			return ((neg) ? 0 : -1);
-		++i;
+		ret = tmp;
+		++str;
 	}
 	return ((neg) ? -ret : ret);
 }
