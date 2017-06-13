@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:37:01 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:37:01 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/11 14:48:41 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	ft_freecontent(void *c, size_t c_s)
 {
-	if (c_s != 0)
+	if (c_s != 0 && c != NULL)
 		free(c);
 }
 

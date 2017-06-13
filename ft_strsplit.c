@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:32:37 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/06/08 13:23:51 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/11 14:42:34 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char		**ft_strsplit(const char *s, char c)
 	if (s != NULL)
 	{
 		wc = word_count(s, c);
-		if ((ret = (char	**)malloc(sizeof(char *) * (wc + 1))))
+		if ((ret = (char **)malloc(sizeof(char *) * (wc + 1))))
 		{
 			counter = 0;
 			while (counter < (wc + 1))

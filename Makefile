@@ -26,7 +26,7 @@ $(NAME):
 	ar rc $(NAME) $(OBJECTS)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)

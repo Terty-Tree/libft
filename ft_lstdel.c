@@ -6,11 +6,11 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:36:49 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:36:49 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:37:29 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
 
 #include "libft.h"
 

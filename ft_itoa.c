@@ -6,15 +6,13 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 15:50:29 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/06/02 14:58:04 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:46:23 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "libft.h"
-
-#define ABS(x) (((x) < 0) ? -x : x)
 
 static int	num_len(long n)
 {

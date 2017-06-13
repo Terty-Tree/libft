@@ -6,15 +6,13 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 14:24:49 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/30 09:23:31 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/11 15:46:05 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
 #include "libft.h"
-
-#define MIN(a, b) ((a < b) ? a : b)
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
