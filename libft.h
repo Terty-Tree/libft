@@ -74,7 +74,6 @@ int				ft_iswhite(int c);
 **	memory functions
 */
 void			*ft_memalloc(size_t size);
-void			*ft_realloc(void *ptr, size_t size);
 void			ft_memdel(void **ap);
 
 /*
