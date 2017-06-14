@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 13:19:36 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/06/13 17:08:11 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/14 13:48:44 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int				ft_iswhite(int c);
 **	memory functions
 */
 void			*ft_memalloc(size_t size);
+void			*ft_realloc(void *ptr, size_t size);
 void			ft_memdel(void **ap);
 
 /*
