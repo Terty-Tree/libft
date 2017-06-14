@@ -37,7 +37,6 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 **	str functions
 */
 size_t			ft_strlen(const char *s);
-size_t			ft_strclen(const char *s, int c);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strdup(const char *s1);
@@ -118,13 +117,20 @@ typedef struct	s_list
 }				t_list;
 
 t_list			*ft_lstnew(const void *content, size_t content_size);
-void			ft_lstsimplefree(void *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstaddr(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+**	Additional functions
+*/
+
+size_t			ft_strclen(const char *s, int c);
+char			*ft_strccpy(char *dst, const char *src, char d);
+void			ft_lstsimplefree(void *content, size_t content_size);
+void			ft_lstaddr(t_list **alst, t_list *new);
 t_list			*ft_lstgetr(t_list *lst);
 int				ft_lstlen(t_list *lst);
 
