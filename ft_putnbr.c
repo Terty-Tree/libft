@@ -14,23 +14,16 @@
 
 #include "libft.h"
 
-static void	ft_putnbrl(long n)
+static void	ft_putnum(unsigned int n)
 {
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
 	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	else
-		ft_putchar(n + '0');
+		ft_putnum(n / 10);
+	ft_putchar((n % 10) + '0');
 }
 
 void		ft_putnbr(int n)
 {
-	ft_putnbrl(n);
+	if (n < 0)
+		ft_putchar('-');
+	ft_putnum((ABS(n)));
 }
