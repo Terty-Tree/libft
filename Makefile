@@ -14,7 +14,7 @@ SOURCES = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		  ft_lstsimplefree.c ft_lstgetr.c ft_strccpy.c ft_strccat.c \
 		  ft_strcdup.c ft_strcjoin.c
 OBJECTS = $(SOURCES:.c=.o)
-INCLUDE = -I.
+INCLUDE = -Iincludes
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
