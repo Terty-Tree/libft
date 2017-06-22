@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:33:07 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/31 13:33:07 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/20 14:20:46 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	while (*s != '\0')
-	{
-		write(fd, s, 1);
-		++s;
-	}
+	if (*s != '\0')
+		write(fd, s, ft_strlen(s));
 }

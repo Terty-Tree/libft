@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 13:19:36 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/06/14 13:48:44 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/06/20 12:28:43 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ char			*ft_strccat(char *dst, const char *src, char d);
 */
 char			*ft_strcjoin(const char *s1, const char *s2, char d);
 char			*ft_strcdup(const char *str, char d);
+void			ft_putnbrbase(int nbr, char base);
 void			ft_lstsimplefree(void *content, size_t content_size);
 void			ft_lstaddr(t_list **alst, t_list *new);
 t_list			*ft_lstgetr(t_list *lst);
