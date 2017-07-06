@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 13:19:36 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/06/20 12:28:43 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/07/06 10:55:35 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include <string.h>
 
-# define ABS(x) (((x) < 0) ? -x : x)
-# define MIN(a, b) ((a < b) ? a : b)
+# define ABS(x) (((x) < 0) ? -(x) : (x))
+# define MIN(a,b) (((a) < (b)) ? (a) : (b))
+# define MAX(a,b) (((a) > (b)) ? (a) : (b))
 
 /*
 ** ============== Part 1 ==============
@@ -141,5 +142,6 @@ void			ft_lstsimplefree(void *content, size_t content_size);
 void			ft_lstaddr(t_list **alst, t_list *new);
 t_list			*ft_lstgetr(t_list *lst);
 int				ft_lstlen(t_list *lst);
+int				ft_chrc(char *str, char c);
 
 #endif
