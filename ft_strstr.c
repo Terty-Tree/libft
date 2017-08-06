@@ -27,3 +27,22 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	}
 	return (NULL);
 }
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	ctr;
+	size_t	l_len;
+
+	ctr = 0;
+	if ((l_len = ft_strlen(little)) == 0)
+		return ((char *)big);
+	while (ctr < len && big[ctr] != '\0')
+	{
+		if (len - ctr < l_len)
+			return (NULL);
+		if (ft_memcmp(little, (big + ctr), MIN(l_len, (len - ctr))) == 0)
+			return ((char *)big + ctr);
+		++ctr;
+	}
+	return (NULL);
+}
