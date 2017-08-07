@@ -25,3 +25,35 @@ char	*ft_strcpy(char *dst, const char *src)
 	dst[index] = '\0';
 	return (dst);
 }
+
+char	*ft_strncpy(char *dst, const char *src, size_t len)
+{
+	size_t index;
+
+	index = 0;
+	while (index < len && src[index] != '\0')
+	{
+		dst[index] = src[index];
+		++index;
+	}
+	while (index < len)
+	{
+		dst[index] = '\0';
+		++index;
+	}
+	return (dst);
+}
+
+char	*ft_strccpy(char *dst, const char *src, char d)
+{
+	int	index;
+
+	index = 0;
+	while (src[index] != '\0' && src[index] != d)
+	{
+		dst[index] = src[index];
+		++index;
+	}
+	dst[index] = '\0';
+	return (dst);
+}

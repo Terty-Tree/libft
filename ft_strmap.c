@@ -36,3 +36,26 @@ char	*ft_strmap(const char *s, char (*f)(char))
 	}
 	return (ret);
 }
+
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+{
+	char			*ret;
+	unsigned int	index;
+
+	ret = NULL;
+	if (s != NULL && f != NULL)
+	{
+		ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+		if (ret)
+		{
+			index = 0;
+			while (s[index] != '\0')
+			{
+				ret[index] = f(index, s[index]);
+				++index;
+			}
+			ret[index] = '\0';
+		}
+	}
+	return (ret);
+}

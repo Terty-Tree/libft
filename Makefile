@@ -1,11 +1,17 @@
 NAME  = libft.a
-SRCS  = {ft_atoi,ft_bzero,ft_ischar,ft_ischar2,ft_itoa,ft_lstmanip,ft_put}.c
-SRCS += {ft_lstuse,ft_memalloc,ft_memccpy,ft_memchr,ft_memcmp,ft_memcpy}.c
-SRCS += {ft_memdel,ft_memmove,ft_memset,ft_strcat,ft_strchr,ft_put_fd}.c
-SRCS += {ft_strclen,ft_strclr,ft_strcmp,ft_strcpy,ft_strdel,ft_strdup}.c
-SRCS += {ft_striter,ft_strtrim,ft_striteri,ft_strjoin,ft_strlen,ft_strccpy}.c
-SRCS += {ft_tolower,ft_toupper,ft_strmap,ft_strmapi,ft_strncpy,ft_strcdup}.c
-SRCS += {ft_strcjoin,ft_strnew,ft_strrchr,ft_strsplit,ft_strstr,ft_strsub}.c
+
+MEM_SRCS = ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
+		   ft_memdel.c ft_memmove.c ft_memset.c ft_bzero.c
+STR_SRCS = ft_strcat.c ft_strchr.c ft_strcmp.c ft_strcpy.c ft_strsplit.c \
+		   ft_striter.c ft_strtrim.c ft_strjoin.c ft_strlen.c ft_strmap.c \
+		   ft_atoi.c ft_itoa.c ft_strnew.c ft_strsub.c ft_strstr.c ft_strdup.c \
+		   ft_chrc.c
+PUT_SRCS = ft_put_fd.c ft_put.c
+LST_SRCS = ft_lstuse.c ft_lstmanip.c
+CHR_SRCS = ft_ischar.c ft_ischar2.c ft_tochar.c 
+
+
+SRCS  = $(MEM_SRCS) $(STR_SRCS) $(PUT_SRCS) $(LST_SRCS) $(CHR_SRCS)
 OBJS  = $(SRCS:.c=.o)
 INCL  = -Iincludes
 

@@ -30,3 +30,24 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s + index);
 	return (NULL);
 }
+
+char	*ft_strrchr(const char *s, int c)
+{
+	char	look_for;
+	int		index;
+	int		last_index;
+
+	look_for = (char)c;
+	index = 0;
+	last_index = -1;
+	while (s[index] != '\0')
+	{
+		if (s[index] == look_for)
+			last_index = index;
+		++index;
+	}
+	if (look_for == '\0')
+		if (s[index] == '\0')
+			return ((char *)s + index);
+	return ((last_index == -1) ? NULL : (char *)s + last_index);
+}
