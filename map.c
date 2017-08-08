@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/08 08:59:10 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/08 09:29:06 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/08 11:34:18 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 static t_map	*grow_map(t_map *map)
 {
 	void	**vals;
-	char	*keys;
+	int		*keys;
 
 	if ((vals = (void **)malloc(sizeof(void *) * (map->capacity + 1))) != NULL)
 	{
-		if ((keys = (char *)malloc(sizeof(char) * (map->capacity + 1))) != NULL)
+		if ((keys = (int *)malloc(sizeof(int) * (map->capacity + 1))) != NULL)
 		{
 			ft_memcpy(vals, map->vals, sizeof(void *) * map->capacity);
-			ft_memcpy(keys, map->keys, sizeof(void *) * map->capacity);
+			ft_memcpy(keys, map->keys, sizeof(int) * map->capacity);
 			vals[map->capacity] = NULL;
 			keys[map->capacity] = 0;
 			if (map->vals != NULL)
@@ -56,7 +56,7 @@ t_map			*create_map(void)
 	return (ret);
 }
 
-t_map			*add_val(t_map *map, char key, void *val)
+t_map			*add_val(t_map *map, int key, void *val)
 {
 	if (get_val(map, key) == NULL)
 	{
@@ -69,7 +69,7 @@ t_map			*add_val(t_map *map, char key, void *val)
 	return (map);
 }
 
-void			*get_val(t_map *map, char key)
+void			*get_val(t_map *map, int key)
 {
 	int		index;
 
