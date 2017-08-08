@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 13:19:36 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/07/06 10:55:35 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/08 07:21:11 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# include "map.h"
 
 # define ABS(x) (((x) < 0) ? -(x) : (x))
 # define MIN(a,b) (((a) < (b)) ? (a) : (b))

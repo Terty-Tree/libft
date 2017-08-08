@@ -8,10 +8,11 @@ STR_SRCS = ft_strcat.c ft_strchr.c ft_strcmp.c ft_strcpy.c ft_strsplit.c \
 		   ft_chrc.c
 PUT_SRCS = ft_put_fd.c ft_put.c
 LST_SRCS = ft_lstuse.c ft_lstmanip.c
-CHR_SRCS = ft_ischar.c ft_ischar2.c ft_tochar.c 
+CHR_SRCS = ft_ischar.c ft_ischar2.c ft_tochar.c
+DAT_SRCS = map.c
 
 
-SRCS  = $(MEM_SRCS) $(STR_SRCS) $(PUT_SRCS) $(LST_SRCS) $(CHR_SRCS)
+SRCS  = $(MEM_SRCS) $(STR_SRCS) $(PUT_SRCS) $(LST_SRCS) $(CHR_SRCS) $(DAT_SRCS)
 OBJS  = $(SRCS:.c=.o)
 INCL  = -Iincludes
 
