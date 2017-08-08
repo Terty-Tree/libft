@@ -6,13 +6,13 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 13:46:37 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/05/30 09:13:40 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/08 06:53:29 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char		*ft_strcat(char *s1, const char *s2)
 {
 	int index;
 	int catat;
@@ -30,7 +30,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	return (s1);
 }
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char		*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	size_t index;
 	size_t catat;
@@ -84,7 +84,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 	return (dst_l + (src_c - src));
 }
 
-char	*ft_strccat(char *s1, const char *s2, char d)
+char		*ft_strccat(char *s1, const char *s2, char d)
 {
 	char		*s1_c;
 	const char	*s2_c;

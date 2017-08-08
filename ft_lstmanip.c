@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmanip.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/08 06:52:37 by pde-brui          #+#    #+#             */
+/*   Updated: 2017/08/08 06:53:03 by pde-brui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 #include "libft.h"
 
-t_list			*ft_lstnew(const void *content, size_t content_size)
+t_list	*ft_lstnew(const void *content, size_t content_size)
 {
 	t_list	*ret;
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstuse.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/08 06:51:46 by pde-brui          #+#    #+#             */
+/*   Updated: 2017/08/08 06:52:05 by pde-brui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 #include "libft.h"
@@ -19,7 +31,7 @@ void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 	}
 }
 
-int	ft_lstlen(t_list *lst)
+int		ft_lstlen(t_list *lst)
 {
 	int len;
 
@@ -38,7 +50,7 @@ void	ft_lstsimplefree(void *content, size_t content_size)
 		free(content);
 }
 
-t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*ret;
 	t_list	*tmp;
