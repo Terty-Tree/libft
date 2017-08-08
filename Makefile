@@ -13,6 +13,10 @@ SRCS += ft_put_fd.c ft_put.c
 SRCS += ft_ischar.c ft_ischar2.c ft_tochar.c
 # Data structure sources
 SRCS += map.c ft_lstuse.c ft_lstmanip.c
+# Get next line
+SRCS += get_next_line.c
+# Printf
+SRCS += ft_printf.c
 
 OBJS  = $(SRCS:.c=.o)
 INCL  = -Iincludes
