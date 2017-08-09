@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/08 07:02:42 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/08 11:34:46 by pde-brui         ###   ########.fr       */
+/*   Created: 2017/06/13 15:32:57 by pde-brui          #+#    #+#             */
+/*   Updated: 2017/06/19 11:26:52 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-typedef struct	s_map
-{
-	void	**vals;
-	int		*keys;
-	int		size;
-	int		capacity;
-}				t_map;
+# define BUFF_SIZE 1
+# define FT_ERR -1
+# define FT_EOF 0
+# define FT_NLN 1
+# define FT_RDN 2
 
-t_map			*create_map();
-t_map			*add_val(t_map *map, int key, void *val);
-void			*get_val(t_map *map, int key);
+int		get_next_line(const int fd, char **line);
 
 #endif
