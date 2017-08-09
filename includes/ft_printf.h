@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/08 06:55:22 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/09 07:42:16 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/09 10:54:55 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct	s_printf
 	int		width;
 	char	modifier;
 	char	*buff;
-	int		printed;
 }				t_printf;
 
 typedef	void (*printfunc)(t_printf *, va_list);

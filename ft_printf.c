@@ -15,17 +15,19 @@ void			printf_num(t_printf *printinfo, va_list list)
 	char	num_len;
 
 	num = va_arg(list, int);
-	str = ft_itoa(num);
-	if ((num_len = ft_strlen(str)) < printinfo->width)
+	if ((str = ft_itoa(num)) != NULL)
 	{
-		pad = ft_strnew(printinfo->width - num_len);
-		ft_memset((void *)pad, ' ', printinfo->width - num_len);
-		if (printinfo->flags & FLAG_LEFT_JUST)
-			ft_strset(&str, ft_strjoin(str, pad));
-		else
-			ft_strset(&str, ft_strjoin(pad, str));
+		if ((num_len = ft_strlen(str)) < printinfo->width)
+		{
+			pad = ft_strnew(printinfo->width - num_len);
+			ft_memset((void *)pad, ' ', printinfo->width - num_len);
+			if (printinfo->flags & FLAG_LEFT_JUST)
+				ft_strset(&str, ft_strjoin(str, pad));
+			else
+				ft_strset(&str, ft_strjoin(pad, str));
+			free(pad);
+		}
 		ft_strset(&(printinfo->buff), ft_strjoin(printinfo->buff, str));
-		free(pad);
 		free(str);
 	}
 }
@@ -33,24 +35,25 @@ void			printf_num(t_printf *printinfo, va_list list)
 void			printf_str(t_printf *printinfo, va_list list)
 {
 	char	*str;
-	char	*res;
 	char	*pad;
 	int		str_len;
 
 	str = va_arg(list, char *);
+	if (str == NULL)
+		str = "(null)";
 	if ((str_len = ft_strlen(str)) < printinfo->width)
 	{
-		res = NULL;
 		pad = ft_strnew(printinfo->width - str_len);
 		ft_memset((void *)pad, ' ', printinfo->width - str_len);
 		if (printinfo->flags & FLAG_LEFT_JUST)
-			res = ft_strjoin(str, pad);
+			str = ft_strjoin(str, pad);
 		else
-			res = ft_strjoin(pad, str);
-		ft_strset(&(printinfo->buff), ft_strjoin(printinfo->buff, res));
+			str = ft_strjoin(pad, str);
 		free(pad);
-		free(res);
 	}
+	ft_strset(&(printinfo->buff), ft_strjoin(printinfo->buff, str));
+	if (str_len < printinfo->width)
+		free(str);
 }
 
 void			printf_chr(t_printf *printinfo, va_list list)
@@ -70,11 +73,20 @@ void			printf_chr(t_printf *printinfo, va_list list)
 			ft_strset(&str, ft_strjoin(str, pad));
 		else
 			ft_strset(&str, ft_strjoin(pad, str));
-		ft_strset(&(printinfo->buff), ft_strjoin(printinfo->buff, str));
 		free(pad);
 	}
+	ft_strset(&(printinfo->buff), ft_strjoin(printinfo->buff, str));
 	if (str != NULL)
 		free(str);
+}
+
+static void		init_printf(t_printf *printinfo, char clearbuff)
+{
+	printinfo->flags = 0;
+	printinfo->width = 0;
+	printinfo->modifier = 0;
+	if (clearbuff)
+		printinfo->buff = NULL;
 }
 
 static t_map	*init_func_map(void)
@@ -92,8 +104,7 @@ static t_printf	*extract_print_info(const char **fmt, t_printf *printinfo)
 {
 	const char	*fmt_c;
 
-	printinfo->flags = 0;
-	printinfo->width = 0;
+	init_printf(printinfo, 0);
 	fmt_c = *fmt;
 	if (*fmt_c == '%')
 		++fmt_c;
@@ -135,6 +146,13 @@ static void		print(t_map *printmap, t_printf *printinfo, va_list list)
 	}
 }
 
+static void		clean_buffer(t_printf *printinfo, char *buff, int *index)
+{
+	ft_strset(&(printinfo->buff), ft_strjoin(printinfo->buff, buff));
+	*index = 0;
+	ft_bzero(buff, PRINTF_BUFFSIZE);
+}
+
 int				ft_printf(const char *fmt, ...)
 {
 	char			buff[PRINTF_BUFFSIZE + 1];
@@ -143,6 +161,7 @@ int				ft_printf(const char *fmt, ...)
 	t_printf		printinfo;
 	va_list			ap;
 
+	init_printf(&printinfo, 1);
 	ft_bzero(buff, sizeof(buff));
 	index = 0;
 	if (func_map == NULL)
@@ -152,6 +171,7 @@ int				ft_printf(const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
+			clean_buffer(&printinfo, buff, &index);
 			extract_print_info(&fmt, &printinfo);
 			print(func_map, &printinfo, ap);
 		}
@@ -159,16 +179,14 @@ int				ft_printf(const char *fmt, ...)
 		{
 			buff[index++] = *fmt;
 			if (index >= PRINTF_BUFFSIZE)
-			{
-				ft_strset(&(printinfo.buff), ft_strjoin(printinfo.buff, buff));
-				index = 0;
-				ft_bzero(buff, sizeof(buff));
-			}
+				clean_buffer(&printinfo, buff, &index);
 			++fmt;
 		}
 	}
 	va_end(ap);
 	ft_strset(&(printinfo.buff), ft_strjoin(printinfo.buff, buff));
-	write(1, printinfo.buff, ft_strlen(printinfo.buff));
-	return (0);
+	write(1, printinfo.buff, (index = ft_strlen(printinfo.buff)));
+	if (printinfo.buff != NULL)
+		free(printinfo.buff);
+	return (index);
 }
