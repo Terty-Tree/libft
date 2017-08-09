@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 13:19:36 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/08 07:21:11 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/09 07:00:36 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,8 +131,8 @@ size_t			ft_strclen(const char *s, int c);
 char			*ft_strccpy(char *dst, const char *src, char d);
 char			*ft_strccat(char *dst, const char *src, char d);
 /*
-** The entirety of the first string will be copied into the returned char *
-** The copying will only stop if it finds the delimiter in the second string
+**	The entirety of the first string will be copied into the returned char *
+**	The copying will only stop if it finds the delimiter in the second string
 */
 char			*ft_strcjoin(const char *s1, const char *s2, char d);
 char			*ft_strcdup(const char *str, char d);
@@ -142,5 +142,9 @@ void			ft_lstaddr(t_list **alst, t_list *new);
 t_list			*ft_lstgetr(t_list *lst);
 int				ft_lstlen(t_list *lst);
 int				ft_chrc(char *str, char c);
+/*
+**	Frees oldstr and sets it equal to newstr, then returns newstr
+*/
+char			*ft_strset(char **oldstr, char *newstr);
 
 #endif
