@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/31 13:31:29 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/09 07:06:49 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/12 08:16:20 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	{
 		if ((ret = ft_strnew(ft_strlen(s1) + ft_strlen(s2))) != NULL)
 		{
-				ft_strcpy(ret, s1);
-				ft_strcat(ret, s2);
+			ft_strcpy(ret, s1);
+			ft_strcat(ret, s2);
 		}
 	}
 	else if (s1 != NULL)

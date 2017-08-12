@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   cp_vec.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/31 13:40:17 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/12 07:17:04 by pde-brui         ###   ########.fr       */
+/*   Created: 2017/08/12 07:27:53 by pde-brui          #+#    #+#             */
+/*   Updated: 2017/08/12 08:17:55 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef CP_VEC_H
+# define CP_VEC_H
 
-#include "libft.h"
-
-char	*ft_strsub(const char *s, unsigned int start, size_t len)
+typedef struct	s_cp_vec
 {
-	char	*ret;
+	char	**vals;
+	int		size;
+	int		capacity;
+}				t_cp_vec;
 
-	ret = NULL;
-	if (s != NULL)
-	{
-		if ((ret = ft_strnew(len)) != NULL)
-		{
-			ret[len] = '\0';
-			while (len > 0)
-			{
-				ret[len - 1] = s[start + (len - 1)];
-				--len;
-			}
-		}
-	}
-	return (ret);
-}
+t_cp_vec		*cp_vec_new(int size);
+t_cp_vec		*cp_vec_cpy(t_cp_vec *dst, t_cp_vec *src);
+t_cp_vec		*cp_vec_add(t_cp_vec *vec, char *val);
+void			cp_vec_free(t_cp_vec **vec);
+
+#endif

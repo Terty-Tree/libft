@@ -12,11 +12,11 @@ SRCS += ft_put_fd.c ft_put.c
 # Character srcs
 SRCS += ft_ischar.c ft_ischar2.c ft_tochar.c
 # Data structure sources
-SRCS += map.c ft_lstuse.c ft_lstmanip.c
+SRCS += map.c ft_lstuse.c ft_lstmanip.c cp_vec.c
 # Get next line
 SRCS += get_next_line.c
 # Printf
-SRCS += ft_printf.c
+SRCS += ft_printf.c ft_print_func.c ft_print_handle.c ft_print_init.c
 
 OBJS  = $(SRCS:.c=.o)
 INCL  = -Iincludes
@@ -29,11 +29,13 @@ all: $(NAME)
 $(NAME):
 	$(CC) -c $(CF) $(INCL) $(SRCS)
 	ar rc $(NAME) $(OBJS)
+	ar rc libftprintf.a $(OBJS)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f libftprintf.a
 
 re: fclean all
