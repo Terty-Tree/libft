@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/12 07:27:12 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/12 07:56:14 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/12 13:36:31 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ t_cp_vec	*cp_vec_add(t_cp_vec *vec, char *val)
 	vec->vals[vec->size] = ft_strdup(val);
 	vec->size += 1;
 	return (vec);
+}
+
+char		*cp_vec_get(t_cp_vec *vec, int index)
+{
+	if (index >= vec->size)
+		return (NULL);
+	return (vec->vals[index]);
 }
 
 void		cp_vec_free(t_cp_vec **vec)
