@@ -29,13 +29,11 @@ all: $(NAME)
 $(NAME):
 	$(CC) -c $(CF) $(INCL) $(SRCS)
 	ar rc $(NAME) $(OBJS)
-	ar rc libftprintf.a $(OBJS)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f libftprintf.a
 
 re: fclean all
