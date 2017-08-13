@@ -147,4 +147,9 @@ int				ft_chrc(char *str, char c);
 */
 char			*ft_strset(char **oldstr, char *newstr);
 
+/*
+**	ft_swap
+*/
+void			ft_cpswap(char **a, char **b);
+
 #endif

@@ -17,6 +17,8 @@ SRCS += map.c ft_lstuse.c ft_lstmanip.c cp_vec_manip.c cp_vec_use.c
 SRCS += get_next_line.c
 # Printf
 SRCS += ft_printf.c ft_print_func.c ft_print_handle.c ft_print_init.c
+# Misc
+SRCS += ft_swap.c
 
 OBJS  = $(SRCS:.c=.o)
 INCL  = -Iincludes

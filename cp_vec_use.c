@@ -43,6 +43,33 @@ t_cp_vec	*cp_vec_rm(t_cp_vec *vec, int index)
 	return (vec);
 }
 
+t_cp_vec	*cp_vec_sort(t_cp_vec *vec, int (*cmp)(const char *, const char *))
+{
+	int		sorted;
+	int		index;
+	int		max;
+	int		res;
+
+	sorted = 0;
+	max = vec->size;
+	while (!sorted)
+	{
+		sorted = 1;
+		index = 0;
+		while (index < max - 1)
+		{
+			if ((res = cmp(vec->vals[index], vec->vals[index + 1])) > 0)
+			{
+				sorted = 0;
+				ft_cpswap(&(vec->vals[index]), &(vec->vals[index + 1]));
+			}
+			++index;
+		}
+		--max;
+	}
+	return (vec);
+}
+
 char		*cp_vec_get(t_cp_vec *vec, int index)
 {
 	if (index < 0 || index >= vec->size)
