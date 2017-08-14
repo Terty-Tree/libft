@@ -7,6 +7,8 @@ t_cp_vec	*cp_vec_add(t_cp_vec *vec, char *val)
 {
 	t_cp_vec	*tmp;
 
+	if (vec == NULL)
+		vec = cp_vec_new(1);
 	if (vec->size + 1 > vec->capacity)
 	{
 		tmp = vec;
