@@ -26,7 +26,7 @@ t_cp_vec	*cp_vec_rm(t_cp_vec *vec, int index)
 	t_cp_vec	*tmp;
 	char		*val;
 
-	if (index < 0 || index >= vec->size)
+	if (vec == NULL || index < 0 || index >= vec->size)
 		return (vec);
 	if ((val = cp_vec_get(vec, index)) != NULL)
 		free(val);
@@ -52,6 +52,8 @@ t_cp_vec	*cp_vec_sort(t_cp_vec *vec, int (*cmp)(const char *, const char *))
 	int		max;
 	int		res;
 
+	if (vec == NULL)
+		return (vec);
 	sorted = 0;
 	max = vec->size;
 	while (!sorted)
@@ -74,7 +76,7 @@ t_cp_vec	*cp_vec_sort(t_cp_vec *vec, int (*cmp)(const char *, const char *))
 
 char		*cp_vec_get(t_cp_vec *vec, int index)
 {
-	if (index < 0 || index >= vec->size)
+	if (vec == NULL || index < 0 || index >= vec->size)
 		return (NULL);
 	return (vec->vals[index]);
 }
