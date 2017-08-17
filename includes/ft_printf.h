@@ -6,7 +6,7 @@
 /*   By: pde-brui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/12 08:51:01 by pde-brui          #+#    #+#             */
-/*   Updated: 2017/08/12 13:12:29 by pde-brui         ###   ########.fr       */
+/*   Updated: 2017/08/17 11:29:27 by pde-brui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@
 
 # include "map.h"
 
-# define FLAGS "-"
+# define SPECIFIERS			"csdi"
+# define FLAGS 				"-"
 # define FLAG_LEFT_JUST		0b00000001
-# define PRINTF_BUFFSIZE	511
+# define PRINT_BUFF			511
 
 typedef struct	s_printf
 {
 	char	flags;
 	int		width;
-	char	modifier;
-	char	*buff;
+	char	specifier;
 }				t_printf;
 
-typedef void	(*t_printfunc)(t_printf *, va_list);
+typedef char	*(*t_convert)(t_printf *, va_list);
 
 int				ft_printf(const char *fmt, ...);
+int				ft_asprintf(char **ret, const char *fmt, ...);
 
 /*
 **	Print functions
